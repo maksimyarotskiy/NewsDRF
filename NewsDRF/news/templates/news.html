@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}">
+</head>
+<body>
+    <p>Последнее обновление API ресурса: {{ last_update }}</p>
+
+    <h1>Новости</h1>
+
+    <ul>
+        {% for article in results %}
+        <li>
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.abstract }}</p>
+            <p class="byline">Кем: {{ article.byline }}</p>
+            <p class="published-date">Опубликовано: {{ article.published_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
